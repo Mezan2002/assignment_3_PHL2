@@ -3,7 +3,8 @@ import { User } from "../user/user.model";
 
 const registerUserIntoDB = async (user: TUser) => {
   const result = await User.create(user);
-  return result;
+  const { password, ...userWithoutPassword } = result.toObject();
+  return userWithoutPassword;
 };
 
 export const AuthServices = {
