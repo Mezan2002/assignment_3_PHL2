@@ -12,6 +12,11 @@ const createBookingIntoDB = async (bookingData: TBooking, userId: string) => {
   return result;
 };
 
+const getAllRentalsOfAUserFromDB = async (userId: string) => {
+  const result = await Booking.find({ userId });
+  return result;
+};
+
 const returnBookingIntoDB = async (bikeId: string) => {
   const bike = await Bike.findById(bikeId);
   const booking = await Booking.findOne({ bikeId: bikeId });
@@ -54,5 +59,6 @@ const returnBookingIntoDB = async (bikeId: string) => {
 
 export const BookingService = {
   createBookingIntoDB,
+  getAllRentalsOfAUserFromDB,
   returnBookingIntoDB,
 };

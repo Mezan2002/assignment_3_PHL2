@@ -16,6 +16,16 @@ const createBooking = catchAsync(async (req, res) => {
   });
 });
 
+const getAllRentalsOfAUser = catchAsync(async (req, res) => {
+  const result = await BookingService.getAllRentalsOfAUserFromDB(req.user.id);
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Rentals retrieved successfully",
+    data: result,
+  });
+});
+
 const returnBooking = catchAsync(async (req, res) => {
   const result = await BookingService.returnBookingIntoDB(req.params.id);
   sendResponse(res, {
@@ -29,4 +39,5 @@ const returnBooking = catchAsync(async (req, res) => {
 export const BookingController = {
   createBooking,
   returnBooking,
+  getAllRentalsOfAUser,
 };

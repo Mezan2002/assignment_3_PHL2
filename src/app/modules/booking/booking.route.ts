@@ -14,6 +14,8 @@ router.post(
   BookingController.createBooking
 );
 
+router.get("/", auth(USER_ROLE.user), BookingController.getAllRentalsOfAUser);
+
 router.put(
   "/:id/return",
   auth(USER_ROLE.admin),
