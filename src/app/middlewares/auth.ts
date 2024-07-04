@@ -8,21 +8,21 @@ import catchAsync from "../utils/catchAsync";
 
 const auth = (...requiredRoles: TUserRole[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    const token = req.headers.authorization;
+    const authHeader = req.headers.authorization;
 
-    if (!token) {
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
       throw new AppError(httpStatus.UNAUTHORIZED, "You are not authorized!");
     }
+
+    const token = authHeader.split(" ")[1];
 
     jwt.verify(
       token,
       config.jwt_access_token_secret as string,
-      function (err, decoded) {
-        // err
+      (err, decoded) => {
         if (err) {
           throw new AppError(httpStatus.UNAUTHORIZED, "Invalid token!");
         }
-        // decoded undefined
         if (!decoded) {
           throw new AppError(httpStatus.UNAUTHORIZED, "Invalid token!");
         }
