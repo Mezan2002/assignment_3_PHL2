@@ -4,7 +4,7 @@ Welcome to the backend of the Bike Rental Reservation System, a service designed
 
 ## Live URL
 
-The live URL for the application is [Bike Rental Reservation System](https://bike-rental-backend-ecru.vercel.app/).
+The live URL for the application is [Bike Rental Reservation System](https://bike-rental-backend-by-mezan.vercel.app/).
 
 ## Features
 
