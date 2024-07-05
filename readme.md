@@ -47,7 +47,7 @@ Make sure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/bike-rental-reservation-system.git
+   git clone https://github.com/Mezan2002/bike-rental-backend.git
    cd bike-rental-backend
    ```
 
